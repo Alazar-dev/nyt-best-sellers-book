@@ -11,7 +11,7 @@ import tw from "tailwind-react-native-classnames";
 import { useSelector, useDispatch } from "react-redux";
 import { booksSelector, fetchBooks } from "../slices/books";
 
-export default function CombinedPrintAndEBookFiction() {
+export default function YoungAdultHardcover() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
 

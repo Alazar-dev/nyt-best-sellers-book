@@ -16,14 +16,15 @@ import Science from "../screens/Science";
 import SeriesBooks from "../screens/Series Books";
 import Sports from "../screens/Sports";
 import TradeFictionPaperback from "../screens/Trade Fiction Paperback";
-import YoungAdult from "../screens/Yound Adult";
+import YoungAdultHardcover from "../screens/Young Adult Hardcover";
 
 export default function Routes() {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
-        name="Advice How To and Miscellaneous"
+        name="Advice How-To and Miscellaneous"
         component={AdviceHowToAndMiscellaneous}
       />
       <Stack.Screen name="Audio Fiction" component={AudioFiction} />
@@ -45,19 +46,22 @@ export default function Routes() {
         name="Hardcover Nonfiction"
         component={HardCoverNonfiction}
       />
-      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
         name="Paperback Nonfiction"
         component={PaperbackNonfiction}
       />
       <Stack.Screen name="Picture Books" component={PictureBooks} />
       <Stack.Screen name="Science" component={Science} />
+      <Stack.Screen name="Series Books" component={SeriesBooks} />
       <Stack.Screen name="Sports" component={Sports} />
       <Stack.Screen
         name="Trade Fiction Paperback"
         component={TradeFictionPaperback}
       />
-      <Stack.Screen name="Young Adult" component={YoungAdult} />
+      <Stack.Screen
+        name="Young Adult HardCover"
+        component={YoungAdultHardcover}
+      />
     </Stack.Navigator>
   );
 }
