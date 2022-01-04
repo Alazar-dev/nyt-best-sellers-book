@@ -4,37 +4,37 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   loading: false,
   hasErrors: false,
-  categories: [],
+  books: [],
 };
-const categoriesSlice = createSlice({
-  name: "categories",
+const booksSlice = createSlice({
+  name: "books",
   initialState,
   reducers: {
-    getCategories: (state) => {
+    getBooks: (state) => {
       state.loading = true;
     },
-    getCategoriesSuccess: (state, { payload }) => {
-      state.categories = payload;
+    getBooksSuccess: (state, { payload }) => {
+      state.books = payload;
       state.loading = false;
       state.hasErrors = false;
     },
-    getCategoriesFailure: (state) => {
+    getBooksFailure: (state) => {
       state.loading = false;
       state.hasErrors = true;
     },
   },
 });
 
-export const { getCategories, getCategoriesSuccess, getCategoriesFailure } =
-  categoriesSlice.actions;
+export const { getBooks, getBooksSuccess, getBooksFailure } =
+  booksSlice.actions;
 
-export const categoriesSelector = (state) => state.categories;
+export const booksSelector = (state) => state.books;
 
-export default categoriesSlice.reducer;
+export default booksSlice.reducer;
 
-export function fetchBookCategories() {
+export function fetchBooks() {
   return async (dispatch) => {
-    dispatch(getCategories());
+    dispatch(getBooks());
 
     try {
       const response = await axios.get(
@@ -46,9 +46,9 @@ export function fetchBookCategories() {
           },
         }
       );
-      dispatch(getCategoriesSuccess(response.data.results.lists));
+      dispatch(getBooksSuccess(response.data.results.lists));
     } catch (error) {
-      dispatch(getCategoriesFailure());
+      dispatch(getBooksFailure());
     }
   };
 }
