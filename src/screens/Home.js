@@ -1,47 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { categoriesSelector, fetchBookCategories } from "../slices/categories";
 import {
   Text,
   TouchableOpacity,
-  View,
   Image,
   StyleSheet,
   ScrollView,
 } from "react-native";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const dispatch = useDispatch();
-  const [books, setBooks] = useState([]);
 
   const { loading, hasErrors, categories } = useSelector(categoriesSelector);
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(fetchBookCategories());
-    console.log("categories", categories);
   }, []);
+
   return (
     <ScrollView>
-      <View>
-        <Text>Homes</Text>
-        {books?.results?.lists?.map((book) => (
-          <TouchableOpacity key={book.list_id}>
+      {loading ? (
+        <Text>Loading...</Text>
+      ) : (
+        categories?.map((category) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate(category.list_name)}
+            key={category.list_id}
+          >
             <Image
-              style={styles.books}
+              style={styles.categories}
               source={{
-                uri: book.list_image,
+                uri: category.list_image,
               }}
             />
-            <Text>{book.list_name}</Text>
+            <Text>{category.list_name}</Text>
           </TouchableOpacity>
-        ))}
-      </View>
+        ))
+      )}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  books: {
+  categories: {
     height: 50,
     width: 50,
   },
