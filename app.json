@@ -7,7 +7,7 @@
       "**/*"
     ],
     "splash": {
-      "image": "./src/assets/images/splash.jpeg"
+      "image": "./src/assets/images/splash.png"
     }
-  },
+  }
 }
