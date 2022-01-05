@@ -18,10 +18,10 @@ export default function HardcoverNonfiction() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[4]);
+  console.log("books", books[3]);
   return (
     <ScrollView>
-      {books[4]?.books.map((book) => (
+      {books[3]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

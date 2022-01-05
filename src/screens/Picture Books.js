@@ -18,10 +18,10 @@ export default function PictureBooks() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[9]);
+  console.log("books", books[8]);
   return (
     <ScrollView>
-      {books[9]?.books.map((book) => (
+      {books[8]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

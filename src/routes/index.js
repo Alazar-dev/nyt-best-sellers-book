@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AdviceHowToAndMiscellaneous from "../screens/Advice How To and Miscellaneous";
 import AudioFiction from "../screens/Audio Fiction";
+import AudioNonfiction from "../screens/Audio Nonfiction";
 import BusinessBooks from "../screens/Business Books";
 import ChildrensMiddleGradeHardcover from "../screens/Childrens Middle Grade Hardcover";
 import CombinedPrintAndEBookFiction from "../screens/Combined Print and E-book Fiction";
@@ -30,6 +31,7 @@ export default function Routes() {
         component={AdviceHowToAndMiscellaneous}
       />
       <Stack.Screen name="Audio Fiction" component={AudioFiction} />
+      <Stack.Screen name="Audio Nonfiction" component={AudioNonfiction} />
       <Stack.Screen name="Business Books" component={BusinessBooks} />
       <Stack.Screen
         name="Childrens Middle Grade Hardcover"
@@ -61,7 +63,7 @@ export default function Routes() {
         component={TradeFictionPaperback}
       />
       <Stack.Screen
-        name="Young Adult HardCover"
+        name="Young Adult Hardcover"
         component={YoungAdultHardcover}
       />
     </Stack.Navigator>

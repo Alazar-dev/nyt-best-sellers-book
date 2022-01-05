@@ -18,10 +18,10 @@ export default function TradeFictionPaperback() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[5]);
+  console.log("books", books[4]);
   return (
     <ScrollView>
-      {books[5]?.books.map((book) => (
+      {books[4]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

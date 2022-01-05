@@ -18,10 +18,10 @@ export default function ChildrensMiddleGradeHardcover() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[8]);
+  console.log("books", books[7]);
   return (
     <ScrollView>
-      {books[8]?.books.map((book) => (
+      {books[7]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

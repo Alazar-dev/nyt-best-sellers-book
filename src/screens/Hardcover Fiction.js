@@ -18,10 +18,10 @@ export default function HardcoverFiction() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[3]);
+  console.log("books", books[2]);
   return (
     <ScrollView>
-      {books[3]?.books.map((book) => (
+      {books[2]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

@@ -18,10 +18,10 @@ export default function BusinessBooks() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[14]);
+  console.log("books", books[13]);
   return (
     <ScrollView>
-      {books[14]?.books.map((book) => (
+      {books[13]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}
