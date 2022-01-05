@@ -10,6 +10,7 @@ import CombinedPrintAndEBookNonfiction from "../screens/Combined Print and E-Boo
 import HardcoverFiction from "../screens/Hardcover Fiction";
 import HardCoverNonfiction from "../screens/Hardcover Nonfiction";
 import Home from "../screens/Home";
+import Intro from "../components/Intro";
 import PaperbackNonfiction from "../screens/Paperback Nonfiction";
 import PictureBooks from "../screens/Picture Books";
 import Science from "../screens/Science";
@@ -22,6 +23,7 @@ export default function Routes() {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator>
+      <Stack.Screen name="intro" component={Intro} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
         name="Advice How-To and Miscellaneous"
