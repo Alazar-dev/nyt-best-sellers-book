@@ -10,6 +10,11 @@ const reducer = {
 const store = configureStore({
   reducer: reducer,
   devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }),
 });
 
 export default store;
