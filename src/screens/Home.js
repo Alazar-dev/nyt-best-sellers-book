@@ -1,50 +1,42 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { categoriesSelector, fetchBookCategories } from "../slices/categories";
-import {
-  Text,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import React from "react";
+import { ScrollView, Text, TouchableOpacity, Image, View } from "react-native";
+import tw from "tailwind-react-native-classnames";
 
 export default function Home({ navigation }) {
-  const dispatch = useDispatch();
-
-  const { loading, hasErrors, categories } = useSelector(categoriesSelector);
-
-  useEffect(() => {
-    dispatch(fetchBookCategories());
-  }, []);
-
   return (
     <ScrollView>
-      {loading ? (
-        <Text>Loading...</Text>
-      ) : (
-        categories?.map((category) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate(category.list_name)}
-            key={category.list_id}
-          >
-            <Image
-              style={styles.categories}
-              source={{
-                uri: category.list_image,
-              }}
-            />
-            <Text>{category.list_name}</Text>
-          </TouchableOpacity>
-        ))
-      )}
+      <View style={tw`flex flex-row`}>
+        <TouchableOpacity onPress={() => navigation.navigate("Categories")}>
+          <Image
+            style={tw`w-48 h-48`}
+            source={require("../assets/images/splash.png")}
+          />
+          <Text style={tw`text-center`}>Books</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            style={tw`w-48 h-48`}
+            source={require("../assets/images/splash.png")}
+          />
+          <Text style={tw`text-center`}>Books</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={tw`flex flex-row`}>
+        <TouchableOpacity>
+          <Image
+            style={tw`w-48 h-48`}
+            source={require("../assets/images/splash.png")}
+          />
+          <Text style={tw`text-center`}>Books</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            style={tw`w-48 h-48`}
+            source={require("../assets/images/splash.png")}
+          />
+          <Text style={tw`text-center`}>Books</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  categories: {
-    height: 50,
-    width: 50,
-  },
-});

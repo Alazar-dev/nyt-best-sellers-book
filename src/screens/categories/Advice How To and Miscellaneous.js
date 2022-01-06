@@ -9,19 +9,19 @@ import {
 import tw from "tailwind-react-native-classnames";
 
 import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
+import { booksSelector, fetchBooks } from "../../slices/books";
 
-export default function PictureBooks() {
+export default function AdviceHowToAndMiscellaneous() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
 
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[8]);
+  console.log("books", books[6]);
   return (
     <ScrollView>
-      {books[8]?.books.map((book) => (
+      {books[6]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}

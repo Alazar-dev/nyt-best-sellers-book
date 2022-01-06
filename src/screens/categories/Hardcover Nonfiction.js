@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
   TouchableOpacity,
@@ -9,11 +9,20 @@ import {
 import tw from "tailwind-react-native-classnames";
 
 import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
+import { booksSelector, fetchBooks } from "../../slices/books";
+import BookDetail from "../../components/modals/BookDetail";
 
 export default function HardcoverNonfiction() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
+  const [isDetail, setIsDetail] = useState(false);
+  const [img, BookImg] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState(null);
+
+  const handleDetailConfirm = () => {
+    setIsDetail(false);
+  };
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -22,7 +31,15 @@ export default function HardcoverNonfiction() {
   return (
     <ScrollView>
       {books[3]?.books.map((book) => (
-        <TouchableOpacity key={book.book_uri}>
+        <TouchableOpacity
+          key={book.book_uri}
+          onPress={() => {
+            BookImg(book.book_image);
+            setAuthor(book.author);
+            setDescription(book.description);
+            setIsDetail(true);
+          }}
+        >
           <Image
             style={styles.books}
             source={{
@@ -33,6 +50,13 @@ export default function HardcoverNonfiction() {
           <Text>{book?.author}</Text>
         </TouchableOpacity>
       ))}
+      <BookDetail
+        image={img}
+        author={author}
+        description={description}
+        visible={isDetail}
+        onConfirm={handleDetailConfirm}
+      />
     </ScrollView>
   );
 }

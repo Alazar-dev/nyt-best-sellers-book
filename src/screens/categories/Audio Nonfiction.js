@@ -9,19 +9,19 @@ import {
 import tw from "tailwind-react-native-classnames";
 
 import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
+import { booksSelector, fetchBooks } from "../../slices/books";
 
-export default function BusinessBooks() {
+export default function AudioFiction() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
 
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[13]);
+  console.log("books", books[12]);
   return (
     <ScrollView>
-      {books[13]?.books.map((book) => (
+      {books[12]?.books.map((book) => (
         <TouchableOpacity key={book.book_uri}>
           <Image
             style={styles.books}
