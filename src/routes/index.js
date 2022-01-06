@@ -1,24 +1,25 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AdviceHowToAndMiscellaneous from "../screens/Advice How To and Miscellaneous";
-import AudioFiction from "../screens/Audio Fiction";
-import AudioNonfiction from "../screens/Audio Nonfiction";
-import BusinessBooks from "../screens/Business Books";
-import ChildrensMiddleGradeHardcover from "../screens/Childrens Middle Grade Hardcover";
-import CombinedPrintAndEBookFiction from "../screens/Combined Print and E-Book Fiction";
-import CombinedPrintAndEBookNonfiction from "../screens/Combined Print and E-Book Nonfiction";
-import HardcoverFiction from "../screens/Hardcover Fiction";
-import HardCoverNonfiction from "../screens/Hardcover Nonfiction";
+import AdviceHowToAndMiscellaneous from "../screens/categories/Advice How To and Miscellaneous";
+import AudioFiction from "../screens/categories/Audio Fiction";
+import AudioNonfiction from "../screens/categories/Audio Nonfiction";
+import BusinessBooks from "../screens/categories/Business Books";
+import Categories from "../screens/Categories";
+import ChildrensMiddleGradeHardcover from "../screens/categories/Childrens Middle Grade Hardcover";
+import CombinedPrintAndEBookFiction from "../screens/categories/Combined Print and E-Book Fiction";
+import CombinedPrintAndEBookNonfiction from "../screens/categories/Combined Print and E-Book Nonfiction";
+import HardcoverFiction from "../screens/categories/Hardcover Fiction";
+import HardCoverNonfiction from "../screens/categories/Hardcover Nonfiction";
 import Home from "../screens/Home";
 import Intro from "../components/Intro";
-import PaperbackNonfiction from "../screens/Paperback Nonfiction";
-import PictureBooks from "../screens/Picture Books";
-import Science from "../screens/Science";
-import SeriesBooks from "../screens/Series Books";
-import Sports from "../screens/Sports";
-import TradeFictionPaperback from "../screens/Trade Fiction Paperback";
-import YoungAdultHardcover from "../screens/Young Adult Hardcover";
+import PaperbackNonfiction from "../screens/categories/Paperback Nonfiction";
+import PictureBooks from "../screens/categories/Picture Books";
+import Science from "../screens/categories/Science";
+import SeriesBooks from "../screens/categories/Series Books";
+import Sports from "../screens/categories/Sports";
+import TradeFictionPaperback from "../screens/categories/Trade Fiction Paperback";
+import YoungAdultHardcover from "../screens/categories/Young Adult Hardcover";
 
 export default function Routes() {
   const Stack = createNativeStackNavigator();
@@ -26,6 +27,7 @@ export default function Routes() {
     <Stack.Navigator>
       <Stack.Screen name="intro" component={Intro} />
       <Stack.Screen name="Home" component={Home} />
+
       <Stack.Screen
         name="Advice How-To and Miscellaneous"
         component={AdviceHowToAndMiscellaneous}
@@ -33,6 +35,7 @@ export default function Routes() {
       <Stack.Screen name="Audio Fiction" component={AudioFiction} />
       <Stack.Screen name="Audio Nonfiction" component={AudioNonfiction} />
       <Stack.Screen name="Business Books" component={BusinessBooks} />
+      <Stack.Screen name="Categories" component={Categories} />
       <Stack.Screen
         name="Childrens Middle Grade Hardcover"
         component={ChildrensMiddleGradeHardcover}

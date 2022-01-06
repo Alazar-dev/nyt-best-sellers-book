@@ -7,11 +7,12 @@ import {
   Text,
 } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
-import BookDetail from "../components/modals/BookDetail";
 
-export default function CombinedPrintAndEBookNonfiction() {
+import { useSelector, useDispatch } from "react-redux";
+import { booksSelector, fetchBooks } from "../../slices/books";
+import BookDetail from "../../components/modals/BookDetail";
+
+export default function SeriesBooks() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
   const [isDetail, setIsDetail] = useState(false);
@@ -19,17 +20,17 @@ export default function CombinedPrintAndEBookNonfiction() {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState(null);
 
-  function handleDetailConfirm() {
+  const handleDetailConfirm = () => {
     setIsDetail(false);
-  }
+  };
 
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[1]);
+  console.log("books", books[9]);
   return (
     <ScrollView>
-      {books[1]?.books.map((book) => (
+      {books[9]?.books.map((book) => (
         <TouchableOpacity
           key={book.book_uri}
           onPress={() => {

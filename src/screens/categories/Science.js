@@ -9,10 +9,10 @@ import {
 import tw from "tailwind-react-native-classnames";
 
 import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
-import BookDetail from "../components/modals/BookDetail";
+import { booksSelector, fetchBooks } from "../../slices/books";
+import BookDetail from "../../components/modals/BookDetail";
 
-export default function SeriesBooks() {
+export default function Science() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
   const [isDetail, setIsDetail] = useState(false);
@@ -27,10 +27,10 @@ export default function SeriesBooks() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[9]);
+  console.log("books", books[14]);
   return (
     <ScrollView>
-      {books[9]?.books.map((book) => (
+      {books[14]?.books.map((book) => (
         <TouchableOpacity
           key={book.book_uri}
           onPress={() => {

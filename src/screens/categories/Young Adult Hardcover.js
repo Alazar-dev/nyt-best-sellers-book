@@ -9,10 +9,10 @@ import {
 import tw from "tailwind-react-native-classnames";
 
 import { useSelector, useDispatch } from "react-redux";
-import { booksSelector, fetchBooks } from "../slices/books";
-import BookDetail from "../components/modals/BookDetail";
+import { booksSelector, fetchBooks } from "../../slices/books";
+import BookDetail from "../../components/modals/BookDetail";
 
-export default function PaperbackNonfiction() {
+export default function YoungAdultHardcover() {
   const dispatch = useDispatch();
   const { loading, hasErrors, books } = useSelector(booksSelector);
   const [isDetail, setIsDetail] = useState(false);
@@ -27,10 +27,10 @@ export default function PaperbackNonfiction() {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
-  console.log("books", books[5]);
+  console.log("books", books[10]);
   return (
     <ScrollView>
-      {books[5]?.books.map((book) => (
+      {books[10]?.books.map((book) => (
         <TouchableOpacity
           key={book.book_uri}
           onPress={() => {
