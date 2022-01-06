@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import BookDetail from "../components/modals/BookDetail";
 import {
   ScrollView,
   TouchableOpacity,
@@ -34,7 +33,6 @@ export default function AdviceHowToAndMiscellaneous() {
           <Text>{book?.author}</Text>
         </TouchableOpacity>
       ))}
-      <BookDetail />
     </ScrollView>
   );
 }

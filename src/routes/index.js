@@ -6,7 +6,7 @@ import AudioFiction from "../screens/Audio Fiction";
 import AudioNonfiction from "../screens/Audio Nonfiction";
 import BusinessBooks from "../screens/Business Books";
 import ChildrensMiddleGradeHardcover from "../screens/Childrens Middle Grade Hardcover";
-import CombinedPrintAndEBookFiction from "../screens/Combined Print and E-book Fiction";
+import CombinedPrintAndEBookFiction from "../screens/Combined Print and E-Book Fiction";
 import CombinedPrintAndEBookNonfiction from "../screens/Combined Print and E-Book Nonfiction";
 import HardcoverFiction from "../screens/Hardcover Fiction";
 import HardCoverNonfiction from "../screens/Hardcover Nonfiction";

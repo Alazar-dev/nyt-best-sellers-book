@@ -14,24 +14,19 @@ import { booksSelector, fetchBooks } from "../slices/books";
 
 export default function CombinedPrintAndEBookFiction() {
   const dispatch = useDispatch();
-  const [isBookDetail, setIsBookDetail] = useState(false);
   const { loading, hasErrors, books } = useSelector(booksSelector);
-  const [bookImg, setBookImg] = useState("");
-  const [bookTitle, setBookTitle] = useState("");
-  const [bookAuthor, setBookAuthor] = useState("");
-  const [bookDescription, setBookDescription] = useState(null);
+  const [isDetail, setIsDetail] = useState(false);
+  const [img, BookImg] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState(null);
 
-  const handleBookDetailConfirm = () => {
-    setIsBookDetail(false);
+  const handleDetailConfirm = () => {
+    setIsDetail(false);
   };
-
-  const handlePress = () => {
-    setIsBookDetail(true);
-  };
-
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
+
   console.log("books", books[0]);
   return (
     <ScrollView>
@@ -39,10 +34,10 @@ export default function CombinedPrintAndEBookFiction() {
         <TouchableOpacity
           key={book.book_uri}
           onPress={() => {
-            setBookImg(book.book_image);
-            setBookTitle(book.title);
-            setBookAuthor(book.author);
-            setIsBookDetail(true);
+            BookImg(book.book_image);
+            setAuthor(book.author);
+            setDescription(book.description);
+            setIsDetail(true);
           }}
         >
           <Image
@@ -56,12 +51,11 @@ export default function CombinedPrintAndEBookFiction() {
         </TouchableOpacity>
       ))}
       <BookDetail
-        image={bookImg}
-        author={bookAuthor}
-        title={bookTitle}
-        message={"Have a cup of coffee!"}
-        visible={isBookDetail}
-        onConfirm={handleBookDetailConfirm}
+        image={img}
+        author={author}
+        description={description}
+        visible={isDetail}
+        onConfirm={handleDetailConfirm}
       />
     </ScrollView>
   );
