@@ -4,18 +4,18 @@ import tw from "tailwind-react-native-classnames";
 
 export default function Home({ navigation }) {
   return (
-    <ScrollView>
+    <ScrollView style={tw`m-2`}>
       <View style={tw`flex flex-row`}>
         <TouchableOpacity onPress={() => navigation.navigate("Categories")}>
           <Image
-            style={tw`w-48 h-48`}
+            style={tw`w-48 h-44`}
             source={require("../assets/images/splash.png")}
           />
           <Text style={tw`text-center`}>Books</Text>
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
-            style={tw`w-48 h-48`}
+            style={tw`w-48 h-44`}
             source={require("../assets/images/splash.png")}
           />
           <Text style={tw`text-center`}>Books</Text>
@@ -24,14 +24,14 @@ export default function Home({ navigation }) {
       <View style={tw`flex flex-row`}>
         <TouchableOpacity>
           <Image
-            style={tw`w-48 h-48`}
+            style={tw`w-48 h-44`}
             source={require("../assets/images/splash.png")}
           />
           <Text style={tw`text-center`}>Books</Text>
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
-            style={tw`w-48 h-48`}
+            style={tw`w-48 h-44`}
             source={require("../assets/images/splash.png")}
           />
           <Text style={tw`text-center`}>Books</Text>
